@@ -14,7 +14,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with OSD Lyrics.  If not, see <http://www.gnu.org/licenses/>. 
+ * along with OSD Lyrics.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "ol_keybindings.h"
 #include "ol_keybinding_settings.h"
@@ -29,7 +29,7 @@ static void
 ol_hide_accel (gpointer userdata)
 {
 }
-  
+
 
 void
 ol_keybinding_init ()
@@ -39,6 +39,8 @@ ol_keybinding_init ()
   GClosure *hide_closure = g_cclosure_new ((GCallback)ol_hide_accel,
                                            NULL,
                                            NULL);
+  /*
+  // Remove the key binding due to conflict.
   gtk_accel_map_add_entry ("<OSD Lyrics>/Hide",
                            gdk_keyval_from_name ("h"),
                            GDK_CONTROL_MASK | GDK_SHIFT_MASK);
@@ -53,6 +55,7 @@ ol_keybinding_init ()
                                    hide_closure);
   ol_keybinder_bind ("<Ctrl><Shift>H", ol_show_hide, NULL);
   ol_keybinder_bind ("<Ctrl><Shift>L", ol_osd_lock_unlock, NULL);
+  */
 }
 
 GtkAccelGroup*
